@@ -1,0 +1,57 @@
+
+
+	<p id="notice"><%= notice %></p>
+
+	<h1>
+	  <!--<strong>Title:</strong>-->
+	  <%= @homework.title %>
+	</h1>
+
+	<h3>
+	  <!--<strong>Question:</strong>-->
+	  <%= @homework.question %>
+	</h3>
+	<br/>
+	<p>
+	  <strong>Duedate:</strong>
+	  <%= @homework.duedate %>
+	</p>
+
+<%= form_for(@homework,:url=>assigned_homework_path(@homework), :html => {:id => "myForm"})   do |f| %>
+	<input type="hidden" name="homeworkid" value="<%=@homework.id%>"/>
+	<input type="hidden" name="studentidlist" />
+
+	<table class="table table-striped" id="users">
+		<thead>
+			<tr>
+				<th>Student Name</th>
+				<th>User Name</th>
+				<th>Select</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- get the fist name and last name on one row. Get the username on same row another column. checkbox is last column-->
+			<% @users.each do |c| %>
+				<tr>
+					<td class="User"><%= c.firstname%> <%=c.lastname%></td>
+					<td class="user_name"><%= c.username %></td>
+					<td><input type="checkbox" name="isAssigned" value="0"></td>
+				</tr>
+
+			<% end %>
+		</tbody>
+	</table>
+
+
+	<hr/>
+	<div>
+	  	<button id="btnAssign" value="Assign" type="button submit" class="btn btn-success">Assign</button>
+		<!--<input type="submit" id="btnAssign" value="Assign"/>-->
+	</div>
+	<hr/>
+
+
+	<%= link_to 'Edit', edit_homework_path(@homework) %> |
+	<%= link_to 'Back', homeworks_path %>
+
+<% end %>

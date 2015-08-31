@@ -1,0 +1,76 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require bootstrap.min
+ */
+
+body{
+
+		padding-top: 50px; 
+
+		font-family: 'Lora', 'Times New Roman', serif;
+		font-size: 20px;
+		color: #404040;
+}
+
+nav li a {
+  			text-transform: uppercase;
+			font-size: 12px;
+			font-weight: 800;
+			letter-spacing: 1px;
+			font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+		}
+
+		.navbar-brand{
+  			text-transform: lowercase;
+			font-size: 18px;
+			font-weight: 800;
+			letter-spacing: 1px;
+			font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+		}
+
+		a {
+ 			 color: #404040;
+		}
+
+		a:hover,
+		a:focus {
+		  color: #0085a1;
+		}
+
+		.navbar-custom {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  z-index: 3;
+		  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		}
+		.navbar-custom .navbar-brand {
+		  font-weight: 800;
+		}
+		.navbar-custom .nav li a {
+		  text-transform: uppercase;
+		  font-size: 12px;
+		  font-weight: 800;
+		  letter-spacing: 1px;
+		}
+
+		.navbar-right{
+			padding-right: 10px;
+		}
+
+		#new_hw_btn{
+			color: #fff;
+		}
