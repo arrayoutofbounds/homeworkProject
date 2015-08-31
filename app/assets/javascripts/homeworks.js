@@ -18,10 +18,17 @@ $(document).ready(function(){
 	    	check_users.push($(this).text());
 		});
 
+
+	   	// this is a hidden input from the assign.html. give it the list of users who have been checked.
+	   	// loop through list in controller to ensure the values are there.
+		$('input[name="studentidlist"]').val(check_users);
+
+	   	/* run this loop to ensure that the array of usernames for the checked boxes has arrived
 		for (i=0;i<check_users .length;i++)
 		{
 		alert(check_users[i]);
 		}
+		*/
 
 
 	});

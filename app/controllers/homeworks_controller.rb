@@ -4,22 +4,44 @@ class HomeworksController < ApplicationController
   def assign
     @homework = Homework.find(params[:id])
     # only students are sent with the instance variables users
+    @assignments = @homework.assignments
     @users = User.where(usertype: 'Student')
   end
 
 
   def assigned
+    @homework = Homework.find(params[:homeworkid])
+    @homework.assignments.delete_all
+    # receive the input values. Loop through the usersnames and go to the 
+    # users table and have a list of ids
+    # can print the usernames array and look in terminal to see list of usernames
+    usersnames = Array.new
+    usersnames = params['studentidlist'].split(',')
+    
+    usersnames.each do |u|
+      # got the user
+      @checkedUser = User.where(username: u).first
 
-    #byebug
+      # i printed it off and looked in ther terminal to see if a user value is received. Should run correct
+      #puts @checkedUser
+
+      # now in a userQuestions table we need to send a entry. That entry will have user.id and hw.id. Showing what users are assigned
+      # that hw.id
+
+       assignment = Assignment.new
+       assignment.user_id = @checkedUser.id
+       assignment.homework_id = Integer(params['homeworkid']) 
+       assignment.save
+    end
+
     respond_to do |format|
-      if @homework.save
-        format.html { redirect_to @homework, notice: 'Homework has been assigned successfully' }
-        format.json { render :show, status: :created, location: @homework }
+      if usersnames.length > 0
+        format.html { redirect_to homeworks_path, notice: 'Homework successfully assigned.' }
       else
-        format.html { render :new }
-        format.json { render json: @homework.errors, status: :unprocessable_entity }
+        format.html { render :assigned }
       end
     end
+
   end
 
   # GET /homeworks

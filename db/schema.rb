@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830113305) do
+ActiveRecord::Schema.define(version: 20150831101225) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "User_id"
+    t.integer  "Homework_id"
+    t.text     "body"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["Homework_id"], name: "index_answers_on_Homework_id"
+  add_index "answers", ["User_id"], name: "index_answers_on_User_id"
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "homework_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "homeworks", force: :cascade do |t|
     t.string   "title"
@@ -19,6 +37,20 @@ ActiveRecord::Schema.define(version: 20150830113305) do
     t.datetime "duedate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_homeworks", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "homeworks_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "user_questions", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "homeworks_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
