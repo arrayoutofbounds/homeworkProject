@@ -1,7 +1,6 @@
-== README
+== Homework Submission Web Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This web app is written using Ruby on Rails web framework. Languages like HTML,CSS,jQuery, Javascript are also used.
 
 Things you may want to cover:
 
