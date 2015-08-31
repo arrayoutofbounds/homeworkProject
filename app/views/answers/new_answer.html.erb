@@ -1,0 +1,26 @@
+<%= form_for(@answer, :url => create_new_answer_path(@homework.id)) do |f| %>
+	<h1>
+	  <!--<strong>Title:</strong>-->
+	  <%= @homework.title %>
+	</h1>
+
+	<h3>
+	  <!--<strong>Question:</strong>-->
+	  <%= @homework.question %>
+	</h3>
+	<br/>
+	<p>
+	  <strong>Duedate:</strong>
+	  <%= @homework.duedate %>
+	</p>
+
+	<div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+
+    <div class="actions">
+    <%= f.submit %>
+  </div>
+
+ <%end%>

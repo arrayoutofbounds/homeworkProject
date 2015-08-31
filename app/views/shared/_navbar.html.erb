@@ -17,10 +17,15 @@
 
       <ul class="nav navbar-nav navbar-right">
 	<li class="dropdown">
-        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Anmol Desai
+        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+
+
+          <%= current_user.full_name if current_user %>
+
+
      		<span class="caret"></span></a>
         	<ul class="dropdown-menu">
-        		<li><a href="#homework">Logout</a></li>
+        		<li><a href="<%= log_out_path%>">Logout</a></li>
       		</ul>
         </li>
        </ul>

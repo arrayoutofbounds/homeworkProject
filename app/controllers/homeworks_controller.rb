@@ -15,12 +15,12 @@ class HomeworksController < ApplicationController
     # receive the input values. Loop through the usersnames and go to the 
     # users table and have a list of ids
     # can print the usernames array and look in terminal to see list of usernames
-    usersnames = Array.new
-    usersnames = params['studentidlist'].split(',')
+    userids = Array.new
+    userids = params['studentidlist'].split(',')
     
-    usersnames.each do |u|
+    userids.each do |uid|
       # got the user
-      @checkedUser = User.where(username: u).first
+      @checkedUser = User.find(uid)
 
       # i printed it off and looked in ther terminal to see if a user value is received. Should run correct
       #puts @checkedUser
@@ -35,7 +35,7 @@ class HomeworksController < ApplicationController
     end
 
     respond_to do |format|
-      if usersnames.length > 0
+      if userids.length > 0
         format.html { redirect_to homeworks_path, notice: 'Homework successfully assigned.' }
       else
         format.html { render :assigned }
@@ -47,7 +47,11 @@ class HomeworksController < ApplicationController
   # GET /homeworks
   # GET /homeworks.json
   def index
-    @homeworks = Homework.all
+    if current_user.teacher?
+      @homeworks = Homework.all
+    else
+      @homeworks = current_user.homeworks
+    end
   end
 
   # GET /homeworks/1

@@ -19,7 +19,7 @@
 
 <%= form_for(@homework,:url=>assigned_homework_path(@homework), :html => {:id => "myForm"})   do |f| %>
 	<input type="hidden" name="homeworkid" value="<%=@homework.id%>"/>
-	<input type="hidden" name="studentidlist"  />
+	<input type="hidden" name="studentidlist" id="studentidlist"  />
 
 	<table class="table table-striped" id="users">
 		<thead>
@@ -32,16 +32,16 @@
 		<tbody>
 			<!-- get the fist name and last name on one row. Get the username on same row another column. checkbox is last column-->
 			<% @users.each do |u| %>
-				<tr>
+				<tr data-userid="<%=u.id%>" >
 					<td class="User"><%= u.firstname%> <%=u.lastname%></td>
 					<td class="user_name"><%= u.username %></td>
 					<% userIdList = @assignments.pluck(:user_id) %>
 				
 					<% if userIdList.include?(u.id) %>
-						<td><input type="checkbox" name="isAssigned" checked="checked"></td>
+						<td><input type="checkbox" name="isAssigned" checked="checked" class="student_checkbox"></td>
 						
 					<% else %>
-						<td><input type="checkbox" name="isAssigned" ></td>
+						<td><input type="checkbox" name="isAssigned" class="student_checkbox" ></td>
 					<% end %>
 				</tr>
 

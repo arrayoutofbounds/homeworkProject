@@ -15,7 +15,17 @@
   <tbody>
     <% @homeworks.each do |homework| %>
       <tr>
-        <td><%= homework.title %></td>
+        <td>
+          <% if current_user.student? %>
+            <% if homework.is_due_date_passed? %>
+              <%= homework.title %>
+            <% else %>
+              <a href="<%=new_answer_path(homework.id) %>" ><%= homework.title %></a>
+            <% end %>
+          <% else %>
+            <a href="<%=show_answers_path(homework.id) %>" ><%= homework.title %></a>
+          <% end %>
+        </td>
         <td><%= homework.question %></td>
         <td><%= homework.duedate %></td>
         <td><%= link_to 'Show', homework %></td>

@@ -14,15 +14,15 @@
 ActiveRecord::Schema.define(version: 20150831101225) do
 
   create_table "answers", force: :cascade do |t|
-    t.integer  "User_id"
-    t.integer  "Homework_id"
+    t.integer  "user_id"
+    t.integer  "homework_id"
     t.text     "body"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "answers", ["Homework_id"], name: "index_answers_on_Homework_id"
-  add_index "answers", ["User_id"], name: "index_answers_on_User_id"
+  add_index "answers", ["homework_id"], name: "index_answers_on_homework_id"
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "user_id"

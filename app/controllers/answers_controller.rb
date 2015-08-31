@@ -17,6 +17,47 @@ class AnswersController < ApplicationController
     @answer = Answer.new
   end
 
+  def new_answer
+    @homework = Homework.find(params[:homework_id])
+    @answer = Answer.new
+    @answer.homework_id = @homework.id
+
+  end
+
+  def index_naswers
+    @homework = Homework.find(params[:homework_id])
+    @answers = @homework.answers
+  end
+
+  def create_new_answer 
+     @homework = Homework.find(params[:homework_id])
+     @answer = Answer.new
+     @answer.homework_id = @homework.id
+     @answer.user_id = current_user.id
+     @answer.body = answer_params[:body]
+
+    respond_to do |format|
+      if @answer.save
+        format.html { redirect_to homeworks_path, notice: 'Answer was successfully created.' }
+      else
+        format.html { render :new_answer }
+      end
+    end
+     
+  end
+
+
+  def show_answers
+     @homework = Homework.find(params[:homework_id])
+     @answers = @homework.latest_answers
+  end
+
+  def show_users_homework_answers
+    @user = User.find(params[:user_id])
+    @homework = Homework.find(params[:homework_id])
+    @answers = @user.answers
+  end
+
   # GET /answers/1/edit
   def edit
   end
@@ -69,6 +110,6 @@ class AnswersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:User_id, :Homework_id, :body)
+      params.require(:answer).permit(:user_id, :homework_id, :body)
     end
 end
