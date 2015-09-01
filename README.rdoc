@@ -2,25 +2,35 @@
 
 This web app is written using Ruby on Rails web framework. Languages like HTML,CSS,jQuery, Javascript are also used.
 
+Functionalities of app:
+
+* Lets teacher create homeork and assign it (not requied as per bried but still completed)
+* Teacher can edit/delete the homwork as well
+* Student can answer multiple times per homework question
+* latest answer for a question is visible to teacher (when the teacher clicks on the question)
+* All of the answers for a particular question by a certain user are seen when teacher clicks on the name of the user (from latest answer screen)
+* If the homework is past the due date, then the student cannot click on the link and answer.
+
+
+Note : You have to add the users from the seed or using the "rails c" command. If 
+
+
 Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
+* Ruby version - Ruby 2.2.3
+* Rails - 4.2.4
+* database - sqlite3
 
 * Database creation
 
 * Database initialization
 
-* How to run the test suite
+* How to run the test suite - rake test
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+* Deployment instructions - coming soon. (need to aqquire a server and set it up)
 
-* ...
 
 
 Please feel free to use a different markup language if you do not plan to run
