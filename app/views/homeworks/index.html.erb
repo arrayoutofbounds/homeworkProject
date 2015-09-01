@@ -29,9 +29,14 @@
         <td><%= homework.question %></td>
         <td><%= homework.duedate %></td>
         <td><%= link_to 'Show', homework %></td>
-        <td><%= link_to 'Assign', assign_homework_path(homework) %></td>
-        <td><%= link_to 'Edit', edit_homework_path(homework) %></td>
-        <td><%= link_to 'Delete', homework, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+        <% if !current_user.student? %>
+          <td><%= link_to 'Assign', assign_homework_path(homework) %></td>
+          <td><%= link_to 'Edit', edit_homework_path(homework) %></td>
+          <td><%= link_to 'Delete', homework, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
@@ -40,5 +45,6 @@
 <br>
 
 
-
-<%= link_to 'New Homework', new_homework_path, :class => 'btn btn-large btn-primary' , :id => 'new_hw_btn' %>
+<% if !current_user.student? %>
+  <%= link_to 'New Homework', new_homework_path, :class => 'btn btn-large btn-primary' , :id => 'new_hw_btn' %>
+<%end%>
