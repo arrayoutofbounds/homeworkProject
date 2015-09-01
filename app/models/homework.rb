@@ -7,7 +7,10 @@ class Homework < ActiveRecord::Base
 		ans = []
 		count = users.count
 		users.each do |u|
-			ans.push(answers.where(user_id: u.id).order('id desc').first)
+			a = answers.where(user_id: u.id).order('id desc').first
+			if a
+				ans.push(a)
+			end
 		end
 		ans
 	end
