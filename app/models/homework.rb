@@ -13,6 +13,7 @@ class Homework < ActiveRecord::Base
 	end
 
 	def is_due_date_passed?
+		duedate = duedate.utc
 		dd = Date.parse(duedate.to_s)
 		
 		(dd-Date.today).to_i < 0
