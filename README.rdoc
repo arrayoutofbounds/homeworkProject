@@ -2,6 +2,16 @@
 
 This web app is written using Ruby on Rails web framework. Languages like HTML,CSS,jQuery, Javascript are also used.
 
+Functionalities of app:
+
+* Lets teacher create homeork and assign it (not requied as per bried but still completed)
+* Teacher can edit/delete the homwork as well
+* Student can answer multiple times per homework question
+* latest answer for a question is visible to teacher (when the teacher clicks on the question)
+* All of the answers for a particular question by a certain user are seen when teacher clicks on the name of the user (from latest answer screen)
+*If the homework is past the due date, then the student cannot click on the link and answer.
+
+
 Things you may want to cover:
 
 * Ruby version - Ruby 2.2.3
