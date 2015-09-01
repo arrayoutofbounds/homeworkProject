@@ -55,7 +55,7 @@ class AnswersController < ApplicationController
   def show_users_homework_answers
     @user = User.find(params[:user_id])
     @homework = Homework.find(params[:homework_id])
-    @answers = @user.answers
+    @answers = @user.answers.where(:user_id => @user.id, :homework_id => @homework.id)
   end
 
   # GET /answers/1/edit

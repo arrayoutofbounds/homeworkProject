@@ -21,10 +21,12 @@
   </thead>
 
   <tbody>
+
     <% @answers.each do |answer| %>
+
       <tr>
         <td>	
-              <a href="<%=show_users_homework_answers_path(answer.user.id, @homework.id)%>" ><%= answer.user.username %></a>
+              <a href="<%=show_users_homework_answers_path(answer.user.id, @homework.id)%>"> <%= answer.user.username %></a> 
         </td>
         <td><%= answer.body %></td>
       </tr>
