@@ -9,7 +9,10 @@ Functionalities of app:
 * Student can answer multiple times per homework question
 * latest answer for a question is visible to teacher (when the teacher clicks on the question)
 * All of the answers for a particular question by a certain user are seen when teacher clicks on the name of the user (from latest answer screen)
-*If the homework is past the due date, then the student cannot click on the link and answer.
+* If the homework is past the due date, then the student cannot click on the link and answer.
+
+
+Note : You have to add the users from the seed or using the "rails c" command. If 
 
 
 Things you may want to cover:
