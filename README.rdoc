@@ -4,7 +4,7 @@ This web app is written using Ruby on Rails web framework. Languages like HTML,C
 
 Functionalities of app:
 
-* Lets teacher create homeork and assign it (not requied as per bried but still completed)
+* Lets teacher create homeork and assign it (not required as per brief, but still completed)
 * Teacher can edit/delete the homwork as well
 * Student can answer multiple times per homework question
 * latest answer for a question is visible to teacher (when the teacher clicks on the question)
@@ -12,7 +12,8 @@ Functionalities of app:
 * If the homework is past the due date, then the student cannot click on the link and answer.
 
 
-Note : You have to add the users from the seed or using the "rails c" command. If 
+Note : You have to add the users from the seed or using the "rails c" command. If you have any questions, please let 
+me know and I will add the appropriate users to the database. Everything else can just be done using the UI.
 
 
 Things you may want to cover:
