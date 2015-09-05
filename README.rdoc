@@ -1,5 +1,7 @@
 = Homework Submission Web Application
 
+http://homework.varniinfotech.com/log_in
+
 This web app is written using Ruby on Rails web framework. Languages like HTML,CSS,jQuery, Javascript are also used.
 
 <b>Functionalities of app:</b>
